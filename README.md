@@ -2,7 +2,7 @@
 Basic Python Malicious URL Checker
 
 ## Description
-This following will describe the steps to complete the project followed by an explanation for each section of code.
+The following will describe the steps to complete the project followed by an explanation for each section of code.
 
 ## Languages
 - [Python](https://www.python.org/)
