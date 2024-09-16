@@ -1,0 +1,32 @@
+import requests
+
+# Replace 'YOUR_API_KEY_HERE' with your actual VirusTotal API key
+API_KEY = 'YOUR_API_KEY_HERE'
+VIRUSTOTAL_URL = 'https://www.virustotal.com/api/v3/urls'
+
+def check_url(url):
+    headers = {
+        'x-apikey': API_KEY
+    }
+    response = requests.post(
+        VIRUSTOTAL_URL,
+        headers=headers,
+        data={'url': url}
+    )
+    if response.status_code == 200:
+        json_response = response.json()
+        if 'data' in json_response and 'attributes' in json_response['data']:
+            attributes = json_response['data']['attributes']
+            last_analysis_stats = attributes.get('last_analysis_stats', {})
+            if last_analysis_stats.get('malicious', 0) > 0:
+                print(f"The URL '{url}' is flagged as malicious.")
+            else:
+                print(f"The URL '{url}' is clean.")
+        else:
+            print("Error: Unexpected response structure.")
+    else:
+        print(f"Error: Unable to check URL. HTTP Status Code: {response.status_code}")
+
+if __name__ == "__main__":
+    url = input("Enter a URL to check: ")
+    check_url(url)
