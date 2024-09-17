@@ -29,7 +29,11 @@ Power Up Kali Linux Virtual Machine
 </p>
 
 <p align="center">
-Install Required Libraries "pip install requests"
+Install Required Libraries<br>
+    
+```python
+pip install requests
+```    
 </p>
 <p align="center">
 <img src="https://github.com/user-attachments/assets/c857996c-d3e7-4b80-83f7-f5edd2727f73" alt="Install Required Libraries">
